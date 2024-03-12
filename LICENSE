@@ -1,4 +1,42 @@
-                    GNU GENERAL PUBLIC LICENSE
+     #include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+int main() {
+    // إعداد مولد الأرقام العشوائية
+    srand(time(0));
+
+    // توليد رقم عشوائي بين 1 و 100
+    int secretNumber = rand() % 100 + 1;
+    int guess;
+    int attempts = 0;
+
+    cout << "مرحبًا بك في لعبة تخمين الرقم!" << endl;
+
+    do {
+        // طلب تخمين من المستخدم
+        cout << "الرجاء إدخال تخمينك: ";
+        cin >> guess;
+
+        // زيادة عدد المحاولات
+        attempts++;
+
+        // فحص التخمين
+        if (guess > secretNumber) {
+            cout << "أقل! حاول مرة أخرى." << endl;
+        } else if (guess < secretNumber) {
+            cout << "أكثر! حاول مرة أخرى." << endl;
+        } else {
+            cout << "تهانينا! لقد قمت بتخمين الرقم بعد " << attempts << " محاولة." << endl;
+        }
+
+    } while (guess != secretNumber);
+
+    return 0;
+}
+               GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
  Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
